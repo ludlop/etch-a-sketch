@@ -3,7 +3,11 @@ let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
 
 defaultGrid();
-
+for (i = 0; i < cells.length; i++){
+    cells[i].addEventListener('mouseover', (event) => {
+        event.target.style.backgroundColor = "blue";
+    }); 
+};
 
 function defaultGrid() {
     makeRows(16);
