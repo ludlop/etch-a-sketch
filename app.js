@@ -1,17 +1,30 @@
 const container = document.querySelector('#container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
-
-defaultGrid();
-for (i = 0; i < cells.length; i++){
-    cells[i].addEventListener('mouseover', (event) => {
-        event.target.style.backgroundColor = "blue";
-    }); 
-};
+console.log(rows);
 
 function defaultGrid() {
-    makeRows(16);
-    makeColumns(16);
+    if (rows.length > 0 || cells.length > 0) {
+        alert("You already have a grid. If you want one new, reset this one");
+    } else {
+        let cellNum = prompt("Enter how many cells do you want in the square grid");
+        if (cellNum > 100) {
+            cellNum = prompt("The square cannot have more than 100 cells per side, enter a number between 1 and 100");
+        };
+        makeRows(cellNum);
+        makeColumns(cellNum);
+        for (i = 0; i < cells.length; i++){
+            cells[i].addEventListener('mouseover', (event) => {
+                event.target.style.backgroundColor = "blue";
+            });
+        };
+    };
+};
+
+function resetGrid() {
+    for (i = (rows.length - 1); i >= 0; i--) {
+        container.removeChild(rows[i]);
+    }
 }
 
 function makeRows(rowNum) {
