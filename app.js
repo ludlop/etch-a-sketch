@@ -15,7 +15,7 @@ function defaultGrid() {
         makeColumns(cellNum);
         for (i = 0; i < cells.length; i++){
             cells[i].addEventListener('mouseover', (event) => {
-                event.target.style.backgroundColor = "blue";
+                event.target.style.backgroundColor = randomBgColor();
             });
         };
     };
@@ -41,6 +41,14 @@ function makeColumns(colNum) {
         for (j = 0; j < colNum; j++) {
             let newCell = document.createElement('div');
             rows[j].appendChild(newCell).className = 'cell';
-        }
-    }
-}
+        };
+    };
+};
+
+function randomBgColor() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    return bgColor;
+};
