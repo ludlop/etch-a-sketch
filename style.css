@@ -3,23 +3,25 @@ body, html {
     margin: 0;
   }
 
-#container {
-    display: grid;
-    width: auto;
+.container {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
 }  
 
 .cell {
     border: 1px solid black;
-    min-width: 15px;
-    min-height: 15px;
-    display: inline-block;
-    margin-left: 2px;
-    margin-right: 2px;
+    min-width: 3px;
+    min-height: 3px;
+    flex-grow: 1;
+    
 };
 
-.gridRow {
+.container .gridRow {
+    display: flex;
     padding: 0;
     margin: 0 auto;
-
+    flex-grow: 1;
 }
 

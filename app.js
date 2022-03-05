@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+const container = document.querySelector('.container');
 let rows = document.getElementsByClassName('gridRow');
 let cells = document.getElementsByClassName('cell');
 console.log(rows);
@@ -31,6 +31,8 @@ function makeRows(rowNum) {
     for (i = 0; i < rowNum; i++) {
         let row = document.createElement('div');
         container.appendChild(row).className = 'gridRow';
+        row.style.display = "flex";
+        row.style.flexGrow = 1;
     }
 }
 
